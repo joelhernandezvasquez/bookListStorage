@@ -1,0 +1,54 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 5rem;
+}
+
+.container {
+  max-width: 40%;
+  margin: auto;
+  padding: 1rem 2rem;
+  border: 1px solid red;
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.header h1 i {
+  color: #0081b1;
+}
+
+.header h1 span {
+  color: #0081b1;
+}
+
+.form-container .book-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 2rem 0;
+}
+
+.form-container .book-inputs label {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.form-container .book-inputs input {
+  font-size: 1.1rem;
+  width: 600px;
+  padding: 5px 0;
+}
+/*# sourceMappingURL=style.css.map */
