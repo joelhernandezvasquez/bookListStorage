@@ -1,56 +1,101 @@
+$deep-blue: #0081b1;
+$main-width: 600px;
 
- $deep-blue:#0081b1;
-
-*{
-    box-sizing: border-box;
-    margin:0;
-    padding:0;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-main{
-    margin-top:5rem;
+main {
+	margin-top: 5rem;
 }
 
-.container{
-    max-width: 40%;
-    margin:auto;
-    padding:1rem 2rem;
-    border:1px solid red;
+.container {
+	max-width: 40%;
+	margin: auto;
+	padding: 1rem 2rem;
 }
 
-.header{
-    h1{
-        text-align: center;
-        font-size: 3rem;
-        font-weight: 500;
+.header {
+	h1 {
+		text-align: center;
+		font-size: 3rem;
+		font-weight: 500;
 
-        i{
-           color: $deep-blue; 
-        }
+		i {
+			color: $deep-blue;
+		}
 
-        span{
-            color:$deep-blue;
-        }
-    }
+		span {
+			color: $deep-blue;
+		}
+	}
 }
 
-.form-container{
-    .book-inputs{
-       display: flex;
-       flex-direction: column;
-       margin:2rem 0;
-      
-        label{
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        input{
-            font-size: 1.1rem;
-            width:600px;
-            padding:5px 0;
-           
-          
-        }
+.form-container {
+	.book-inputs {
+		display: flex;
+		flex-direction: column;
+		margin: 2rem 0;
 
-    }
+		label {
+			font-size: 1.1rem;
+			margin-bottom: 5px;
+		}
+		input {
+			font-size: 1.1rem;
+			width: $main-width;
+			padding: 5px 0;
+			border: 1px solid $deep-blue;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		#btn {
+			align-self: flex-start;
+			width: $main-width;
+			background: $deep-blue;
+			border: none;
+			outline: none;
+			color: white;
+			font-size: 1.2rem;
+			letter-spacing: 1px;
+			padding: 0.5rem;
+			cursor: pointer;
+		}
+	}
+}
+
+.data-grid {
+	.container {
+		.data-grid-header {
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				width: $deep-blue;
+				height: 1px;
+				background: rgb(120, 129, 120);
+			}
+
+			.inner {
+				padding: 0.5rem 0;
+			}
+		}
+	}
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	align-items: center;
+}
+
+.focus-effect {
+	//border: 1px solid $deep-blue;
+	border: 1px solid $deep-blue;
+	box-shadow: 1px 2px 5px 2px rgba(0, 129, 177, 0.61);
 }

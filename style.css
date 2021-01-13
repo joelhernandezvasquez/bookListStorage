@@ -13,7 +13,6 @@ main {
   max-width: 40%;
   margin: auto;
   padding: 1rem 2rem;
-  border: 1px solid red;
 }
 
 .header h1 {
@@ -50,5 +49,52 @@ main {
   font-size: 1.1rem;
   width: 600px;
   padding: 5px 0;
+  border: 1px solid #0081b1;
+}
+
+.form-container .book-inputs input:focus {
+  outline: none;
+}
+
+.form-container .book-inputs #btn {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  width: 600px;
+  background: #0081b1;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.data-grid .container .data-grid-header::before, .data-grid .container .data-grid-header::after {
+  content: "";
+  display: block;
+  width: #0081b1;
+  height: 1px;
+  background: #788178;
+}
+
+.data-grid .container .data-grid-header .inner {
+  padding: 0.5rem 0;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.focus-effect {
+  border: 1px solid #0081b1;
+  -webkit-box-shadow: 1px 2px 5px 2px rgba(0, 129, 177, 0.61);
+          box-shadow: 1px 2px 5px 2px rgba(0, 129, 177, 0.61);
 }
 /*# sourceMappingURL=style.css.map */
