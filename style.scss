@@ -99,3 +99,27 @@ main {
 	border: 1px solid $deep-blue;
 	box-shadow: 1px 2px 5px 2px rgba(0, 129, 177, 0.61);
 }
+
+.message-container{
+
+	display:none;
+	width:40%;
+	margin:auto;
+}
+
+
+.alert{
+	
+	background:red;
+	width: $main-width;
+	height:40px;
+	color:white;
+	display:flex;
+	align-items: center;
+	font-size: 1.2rem;
+	margin-left:2rem;
+	padding:0 5px;
+	
+	
+}
+
