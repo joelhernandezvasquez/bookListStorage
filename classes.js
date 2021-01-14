@@ -56,6 +56,11 @@ export class UIBookList {
        document.querySelector(".message-container").style.display = "none";  
     }
 
+    clearOutFields = () => {
+        const inputs = Array.from(document.querySelectorAll("input")) 
+        inputs.forEach((input) => input.value = "")
+    }
+
 }
 
 
@@ -66,13 +71,43 @@ export class Book{
     }
     
     addBook = (...args) =>{
-     
-       const [title] = [...args]; // destructuring the array
-        const objBook = {...args}; // creating an object out of the array
-       
       
-       localStorage.setItem(title,JSON.stringify(objBook));
-      console.log( JSON.parse(localStorage.getItem(title)));
+       const [title,author,isbn] = [...args]; // destructuring the array
+       
+       const objBook = {
+            bookTitle: title,
+            bookAuthor: author,
+            bookIsbn:isbn
+        }
+       
+        localStorage.setItem(title, JSON.stringify(objBook)); // save the object in the local storage
+        const bookItem = document.createElement("div");
+        bookItem.classList.add("book-item","grid");
+        bookItem.innerHTML= `
+                            <h3> ${objBook.bookTitle} </h3>
+                            <h3> ${objBook.bookAuthor} </h3>
+                            <h3> ${objBook.bookIsbn} </h3>
+                            <button class="delete-btn"> delete</button>
+                        `
+        document.querySelector(".data-grid-result").appendChild(bookItem); 
+     // console.log( JSON.parse(localStorage.getItem(title)));
+    }
+
+    deleteBook = (e) =>
+    {
+        if (e.target.classList.contains("delete-btn"))
+        {
+            
+             const bookItem = e.target.closest("div");
+            const keyValueLocalStorage = bookItem.firstElementChild.textContent;
+            
+             
+             localStorage.removeItem(keyValueLocalStorage);
+            document.querySelector(".data-grid-result").removeChild(bookItem);
+            
+            
+
+        }
         
     }
 }
