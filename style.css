@@ -104,8 +104,7 @@ main {
   margin: auto;
 }
 
-.alert {
-  background: red;
+.info {
   width: 600px;
   height: 40px;
   color: white;

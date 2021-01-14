@@ -35,21 +35,41 @@ export class UIBookList {
     }
 
    
+    createMessage = (message,background) =>{
+       const infoContainer = document.createElement("div");
+        const text = document.createElement("p");
+        text.textContent = message;
+        
+        infoContainer.classList.add("info");
+        infoContainer.style.backgroundColor = background;
+        infoContainer.appendChild(text);
+        
+        return infoContainer;
+   }
+
     emptyFieldMessageAlert = () =>{
-       
+        
         const messageContainer = document.querySelector(".message-container");
-       const alert = document.createElement("div");
-       const text = document.createElement("p");
+         const message  = this.createMessage("Please Fill out empty Fields","red")
 
-       text.textContent = "Please fill out all Empty Fields";
-       text.classList.add(".message");
-       alert.classList.add("alert");
-       alert.appendChild(text);
+       messageContainer.style.display = "flex";
+       messageContainer.appendChild(message);
 
+    }
+
+    addBookAlert = () => {
+        
+        const messageContainer = document.querySelector(".message-container");
+        const message = this.createMessage("Book Added", "green")
+        
+        this.clearOutAlertContainer();
         
        messageContainer.style.display = "flex";
-       messageContainer.appendChild(alert);
-
+        messageContainer.appendChild(message); 
+        
+        setTimeout(() => {
+            messageContainer.innerHTML = ""
+        }, 3000);
     }
 
     removeMessageAlert = () =>{
@@ -60,6 +80,12 @@ export class UIBookList {
         const inputs = Array.from(document.querySelectorAll("input")) 
         inputs.forEach((input) => input.value = "")
     }
+
+    clearOutAlertContainer = () => {
+       document.querySelector(".message-container").innerHTML = "";
+    }
+
+    
 
 }
 
@@ -97,16 +123,12 @@ export class Book{
     {
         if (e.target.classList.contains("delete-btn"))
         {
+            const bookItem = e.target.closest("div");
+            const keyValueLocalStorage = bookItem.firstElementChild.innerText;
             
-             const bookItem = e.target.closest("div");
-            const keyValueLocalStorage = bookItem.firstElementChild.textContent;
-            
-             
-             localStorage.removeItem(keyValueLocalStorage);
+            localStorage.removeItem(keyValueLocalStorage);
             document.querySelector(".data-grid-result").removeChild(bookItem);
-            
-            
-
+        
         }
         
     }

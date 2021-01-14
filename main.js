@@ -17,13 +17,14 @@ const validateFields = () => {
   {
     forminput.removeMessageAlert();
     
-     book.addBook(document.getElementById("title").value,document.getElementById("Author").value,document.getElementById("isbn").value)
+    book.addBook(document.getElementById("title").value, document.getElementById("Author").value, document.getElementById("isbn").value)
+    forminput.addBookAlert();
     forminput.clearOutFields();
   }
   else{
     
      if(document.querySelector(".message-container").childElementCount == 0)
-    forminput.emptyFieldMessageAlert();
+        forminput.emptyFieldMessageAlert();
   }
 }
 
